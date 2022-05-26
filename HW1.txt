@@ -1,0 +1,61 @@
+HW_1. The first part
+
+1) Watch where I am   
+pwd
+2) create folder 
+mkdir qa_1
+3) enter to folder   
+ cd qa_1/
+4) Create 3 folders 
+ mkdir dir1 dir2 dir3
+5) Enter to any folders 
+ cd dir2/
+6) create 5 files (3 txt, 2 json) 
+ touch file1.txt file2.txt file3.txt file4.json file5.json
+7) create 3 folders 
+ mkdir test1 test2 test3
+8. Output a list of folder contents 
+ ls -la
+9) + open any txt file 
+ cat file1.txt
+10) + write something into this file. 
+ cat >> file1.txt (after "enter" button write some text)
+11) + save and exit. 
+ ctrl+z
+12) exit to up level folder 
+ cd ..
+13) move any 2 files to another folder. 
+ mv dir2/*.json dir3/
+14) copy any 2 files to another folder. 
+ cp dir2/{file1.txt,file2.txt} dir3/
+15) find file by name. 
+ find -name 'file2.txt'
+16) view the content in real time (grep command) learn how it works. 
+ tail -f dir3/file1.txt 
+
+17) view several first rows from a file 
+ head -n5 dir3/file1.txt
+18) view several last rows from a file  
+ tail -n5 dir3/file1.txt
+19) view the content for a long file (less) learn how it works. 
+ less dir3/file1.txt
+
+=========
+
+Exercises *
+1) Send an http request to the server. http://162.55.220.72:5005/terminal-hw-request
+curl http://162.55.220.72:5005/terminal-hw-request 
+
+2) Write a script that will automatically execute the items 3, 4, 5, 6, 7, 8, 13
+ cat > myscript
+#!/bin/bash
+mkdir baha1 baha2 baha3
+cd baha2/
+touch chetam.txt chetam2.txt chetam3.txt one.json two.json
+mkdir privet hallo chao
+ls -la
+mv *.json baha3/
+CTRL+Z
+# below are the linux commands to run myscript file
+ chmod +x ./myscript
+ ./myscript
