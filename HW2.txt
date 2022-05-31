@@ -29,7 +29,11 @@ ctrl+C
  9. Через cat добавить в текстовый файл tf_3.txt строку “the second 2”    
 cat >> tf_3.txt								  
 the second 2
+<<<<<<< HEAD
 ctrl+C
+=======
+ctrl^Z
+>>>>>>> b2a75430b517c5d065f8ef11f67d1a56c9b6f07a
  10. Через cat добавить в текстовый файл tf_3.txt строку “the sec 2”
 cat >> tf_3.txt
 the sec 2
@@ -143,3 +147,5 @@ ctrl+c
 3)grep -lr sec | xargs rm
  40. Просто вывести в терминал строку “Good job!!”
 echo 'Good job!!'
+
+
