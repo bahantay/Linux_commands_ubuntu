@@ -17,7 +17,7 @@ touch tf_1.txt
 - the first 1
 - the second 2
 - the third 3
-CTRL+Z
+CTRL+C
  7. Зайти в папку inner_dir_1
 cd inner_dir_1/
  8. Через cat сделать текстовый файл tf_3.txt  c любыми строками
@@ -25,30 +25,27 @@ cat > tf_3.txt
 Hallo Hi
 What's up?
 Bye
-ctrl+Z
- 9. Через cat добавить в текстовый файл tf_3.txt строку “the second 2”
-cat >> tf_3.txt
+ctrl+C
+ 9. Через cat добавить в текстовый файл tf_3.txt строку “the second 2”    
+cat >> tf_3.txt								  
 the second 2
-^Z
+ctrl+C
  10. Через cat добавить в текстовый файл tf_3.txt строку “the sec 2”
 cat >> tf_3.txt
 the sec 2
-^Z
+ctrl+C
  11. Через cat добавить в текстовый файл tf_2.txt строку “the sec 3”
-cd ..
-cat >> tf_2.txt
+cat >> ../tf_2.txt
 the sec 3
-^Z
+ctrl+C
  12. Через cat добавить в текстовый файл tf_3.txt строку “the SeCoNd 2”
-cd inner_dir_1/
 cat >> tf_3.txt
 the SeCoNd 2
-^Z
+ctrl+C
  13. Через cat добавить в текстовый файл tf_2.txt строку “the seConD 2”
-cd ..
-cat >> tf_2.txt
+cat >> ../tf_2.txt
 the seConD 2
-^Z
+ctrl+C
  14. Сделать текстовый файл tf_4.txt в котором будет 15 строк.
 cd inner_dir_1/
 cat > tf_4.txt
@@ -67,7 +64,7 @@ zwölf
 dreizehn 
 vierzehn 
 fünfzehn
-ctrl+z
+ctrl+c
 
  15. Сделать текстовый файл tF_5.txt в котором будет 13 строк.
 cat > tf_5.txt
@@ -84,7 +81,7 @@ ten
 eleven
 twelve
 thirteen
-ctrl+z
+ctrl+c
  16. Вывести список всех файлов в папке.
 ls -la
  17. Выйти из папки inner_dir_1
@@ -101,42 +98,48 @@ find -name "*tf*"
  22. Найти путь к файлам у которых есть  “tf” в названии и буквы в любом регистре.
 find -iname "*tf*"
  23. Найти строки в файлах где есть комбинация букв “sec” в текущей папке
-grep -n "sec" *
+grep "sec" * 
  24. Найти строки в файлах где есть комбинация букв “sec” в любом регистре в текущей папке
-grep -ni "sec" *
+grep -i "sec" * 
  25. Найти строки в файлах где есть только комбинация букв “sec” в текущей папке
-grep -nw "sec" *
+grep -w "sec" * 
  26. Найти строки в файлах где есть только комбинация букв “sec” в любом регистре в текущей папке
-grep -nwi "sec" *
+grep -wi "sec" * 
  27. Найти строки в файлах где есть комбинация букв “second” в текущей папке
-grep -n "second" *
+grep "second" *   
  28. Найти строки в файлах где есть комбинация букв “second” в любом регистре в текущей папке
-grep -ni "second" *
+grep -i "second" * 
  29. Найти строки в файлах где есть комбинация букв “second” во всех папках ниже уровнем
-grep -rni "second"
+grep -ri "second" *
  30. Найти только путь и название файла в строках которых есть комбинация букв “second” в текущей папке
-grep -l "second" *
+sudo ls -R | grep -i "second" *	 
  31. Найти все строки во всех файлах где нет комбинации “second”
-grep -rnv "second"
+grep -rv "second" *  
  32. Найти только название и путь к файлам где нет комбинации “second”
-grep -rlv "second"
+sudo ls -R | grep -rlv "second"  
  33. Вывести в терминал 4 последних строк любого текстового файла
 tail -n4 inner_dir_1/tf_5.txt
  34. Вывести в терминал 4 первые строки любого текстового файла.
 head -n4 inner_dir_1/tf_5.txt
  35. Команда в одну строку. Создать папку и создать текстовый файл с содержиммым.
-mkdir test && cat > my_text.txt
+mkdir test && cat > my_text.txt       
 asd
 asd
 asd
-ctrl^Z
+ctrl+c              
  36. Команда в одну строку. Переместить в любую одну папку текстовые файлы у которых в содержимом есть слово “sec”
-mv `grep -l 'sec' *` test/
+1)mv `grep -l 'sec' *` test/
+2)grep -lr sec | xargs mv -t dir_2
  37. Команда в одну строку. Скопировать в любую одну папку текстовые файлы у которых в содержимом есть слово “sec”
-cp `grep -l 'sec' *` test/
+1)cp `grep -l 'sec' *` test/
+2)grep -lr sec | xargs cp -t inner_dir_1
+
  38. Команда в одну строку. Найти все строки c “sec” во всех текстовых файлах, скопировать и вставить эти строки в один новый созданный текстовый файл.
-grep -rh "sec" > new_sec_contains_file.txt
+1)grep -rh "sec" > new_sec_contains_file.txt
+2)grep -ir --line-buffered sec >> tf_7.txt 
  39. Команда в одну строку. Удалить текстовые файлы у которых в содержимом есть слово “sec”
-rm `grep -l 'sec' *`
+1)rm `grep -l 'sec' *`
+2)rm $(grep -rwl sec .) 
+3)grep -lr sec | xargs rm
  40. Просто вывести в терминал строку “Good job!!”
-echo "Good job!"
+echo 'Good job!!'
