@@ -70,7 +70,7 @@ vierzehn
 fünfzehn
 ctrl+c
 
- 15. Сделать текстовый файл tF_5.txt в котором будет 13 строк.
+ 15. Create text file tF_5.txt with 13 rows.
 cat > tf_5.txt
 one 
 two
