@@ -97,7 +97,7 @@ find -name "tf_4.txt"
  20. Отчистить файл tf_4.txt от содержимого без удаления самого файла.
 cat > inner_dir_1/tf_4.txt
 ^Z
- 21. Найти путь к файлам у которых есть  “tf” в названии.
+ 21. Find a way where “tf” is included in name.
 find -name "*tf*"
  22. Найти путь к файлам у которых есть  “tf” в названии и буквы в любом регистре.
 find -iname "*tf*"
